@@ -8,9 +8,10 @@ const Navbar: React.FC = () => {
         <nav className="bg-alabaster fixed w-full z-10 top-0">
             <div className="container mx-auto px-4 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
-                    <Link href="/" className="text-xl font-bold text-gray-800  animate__animated animate__lightSpeedInLeft">
+                    <h1 className="text-xl font-bold text-gray-800  animate__animated animate__lightSpeedInLeft">AI-Gen-Image Tutorial</h1>
+                    {/* <Link href="/" className="text-xl font-bold text-gray-800  animate__animated animate__lightSpeedInLeft">
                         AI-Gen-Image Tutorial
-                    </Link>
+                    </Link> */}
                     {/* <Image src={ixlabLogo} alt="IX Lab Logo" className="h-8 w-auto"/> */}
                 </div>
             </div>

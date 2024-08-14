@@ -17,14 +17,16 @@ const STBox3: React.FC = () => {
 
     return (
         <div className="relative w-full max-w-2xl mx-auto mt-8 border-4 border-black bg-white p-4 rounded-lg shadow-lg">
-            <Image
-                src={StyleImageAnalysis}
-                alt="Style Image Analysis"
-                width={StyleImageAnalysis.width}
-                height={StyleImageAnalysis.height}
-                layout="responsive"
-                className="rounded-lg"
-            />
+            <div className="mb-16"> {/* Adds margin below the image */}
+                <Image
+                    src={StyleImageAnalysis}
+                    alt="Style Image Analysis"
+                    width={StyleImageAnalysis.width}
+                    height={StyleImageAnalysis.height}
+                    layout="responsive"
+                    className="rounded-lg"
+                />
+            </div>
 
             {popups.map((popup) => (
                 <div

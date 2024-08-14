@@ -5,8 +5,8 @@ import generatedImageWeak from '@/sketch-to-image-images/dog-low.png';
 import generatedImageStrong from '@/sketch-to-image-images/dog-high.png';
 
 const STIBox6: React.FC = () => {
-    const [creativityStrength, setCreativityStrength] = useState<'weak' | 'strong'>('strong');
-    const [generatedImage, setGeneratedImage] = useState<string>(generatedImageStrong.src);
+    const [creativityStrength, setCreativityStrength] = useState<'weak' | 'strong'>('weak');
+    const [generatedImage, setGeneratedImage] = useState<string>(generatedImageWeak.src);
 
     const handleStrengthChange = (value: 'weak' | 'strong') => {
         setCreativityStrength(value);

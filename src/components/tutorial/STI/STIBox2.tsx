@@ -11,8 +11,8 @@ const STIBox2: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center mt-8 mb-8 w-1/2 max-w-4xl">
-            <div className="border-4 border-black bg-white p-4 rounded-lg shadow-lg w-full flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center mt-8 mb-8">
+            <div className="border-4 border-black bg-white p-12 rounded-lg shadow-lg w-[800px] h-[475px] relative flex flex-col items-center">
                 {/* Title inside the border box */}
                 <h2 className="text-2xl font-bold mb-4 text-center">Click on “Transform” to see the output</h2>
 
@@ -47,9 +47,11 @@ const STIBox2: React.FC = () => {
                         </div>
                     )}
                 </div>
+
+                {/* Button positioned in the bottom-right corner */}
                 <button
                     onClick={handleTransform}
-                    className="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg"
+                    className="absolute bottom-4 right-4 bg-blue-500 text-white px-6 py-2 rounded-lg"
                 >
                     Transform
                 </button>

@@ -7,8 +7,8 @@ import generatedImageMedium from '@/image-to-image-images/generatedImageMedium.j
 import generatedImageStrong from '@/image-to-image-images/generatedImageStrong.jpg';
 
 const STBox2: React.FC = () => {
-    const [intensity, setIntensity] = useState<'weak' | 'medium' | 'strong'>('medium');
-    const [generatedImage, setGeneratedImage] = useState<string>(generatedImageMedium.src);
+    const [intensity, setIntensity] = useState<'weak' | 'medium' | 'strong' | null>(null);
+    const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
     const handleIntensityChange = (value: 'weak' | 'medium' | 'strong') => {
         setIntensity(value);
@@ -50,7 +50,13 @@ const STBox2: React.FC = () => {
                     </div>
                     <div className="flex flex-col items-center flex-grow">
                         <div className="font-bold mb-4">Generated Image with Style</div>
-                        <Image src={generatedImage} alt="Generated Image" className="rounded-lg" width={300} height={300} />
+                        {generatedImage ? (
+                            <Image src={generatedImage} alt="Generated Image" className="rounded-lg" width={300} height={300} />
+                        ) : (
+                            <div className= "w-[300px] h-[400px]  bg-gray-300 flex items-center justify-center rounded-lg">
+                                <span className="text-gray-600">Choose style intensity</span>
+                            </div>
+                        )}
                         <div className="mt-4 w-full">
                             <div className="font-bold mb-2">Style Intensity</div>
                             <div className="flex justify-between space-x-2">

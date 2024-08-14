@@ -14,8 +14,8 @@ const TTILiv1: React.FC = () => {
 
     const popups: PopupData[] = [
         { x: 50, y: 52, text: 'Sofa: Shape - Rectangular with round edges, Color - Beige' },
-        { x: 50, y: 70, text: 'Coffee Table: Shape - Oval, Color - Neutral' },
-        { x: 38, y: 83, text: 'Rug: Shape - Rectangular, Color - Cream' },
+        { x: 52, y: 75, text: 'Coffee Table: Shape - Oval, Color - Neutral' },
+        { x: 38, y: 85, text: 'Rug: Shape - Rectangular, Color - Cream' },
     ];
 
     const handleAreaClick = (popup: PopupData) => {

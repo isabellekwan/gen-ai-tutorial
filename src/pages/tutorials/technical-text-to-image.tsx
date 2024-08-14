@@ -13,7 +13,7 @@ const TechnicalTTITutorial: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8 py-32">
             <h1 className="text-4xl font-bold mb-8">Technical Text-To-Image Explanation</h1>
             <p className="mb-8">
-                Let&apos;s delve into text encoding using the CLIP model. When you provide a text prompt, CLIP processes it using a transformer-based architecture. The text is tokenized and passed through multiple layers of transformers to generate a contextualized vector representation. This vector captures the semantic meaning of the text, allowing the model to understand complex descriptions. Simultaneously, images are encoded into vectors in the same latent space as the text. This shared space allows the model to measure the similarity between text and image representations.
+                Let&apos;s explore text encoding using the CLIP model. When you provide a text prompt, CLIP processes it using a transformer-based architecture. The text is tokenized and passed through multiple layers of transformers to generate a contextualized vector representation. This vector captures the semantic meaning of the text, allowing the model to understand complex descriptions. Simultaneously, images are encoded into vectors in the same latent space as the text. This shared space allows the model to measure the similarity between text and image representations.
             </p>
             <div className="flex justify-center mb-8">
                 <Image src={clipModel} alt="CLIP Model Diagram" width={800} height={800} className="mb-8"/> 

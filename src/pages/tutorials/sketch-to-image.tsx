@@ -62,8 +62,8 @@ const SketchToImage: React.FC = () => {
                             Sketch to Image Tutorial
                         </h1>
                         <p className="max-w-3xl text-left mb-4 text-2xl lg:text-3xl animate__animated animate__pulse">
-                            Welcome to our Sketch to Image Tutorial! In this guide, we will explore a version of 
-                            image-to-image generative AI, focusing on sketches to art.
+                        Welcome to our Sketch to Image Tutorial! This tutorial will guide you through 
+                        the basics of creating art from simple sketches. Let&apos;s get started!
                         </p>
                         <div className="flex items-center space-x-4 mt-8 mb-52">
                             <Button

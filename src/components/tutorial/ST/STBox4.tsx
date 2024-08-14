@@ -3,14 +3,14 @@ import Image from 'next/image';
 import contentImage from '@/style-transfer-images/content-image.png';
 import styleImage1 from '@/style-transfer-images/style1.png';
 import styleImage2 from '@/style-transfer-images/style2.png';
-import styleImage3 from '@/style-transfer-images/style3.png'
+import styleImage3 from '@/style-transfer-images/style3.png';
 import generatedImageStyle1 from '@/style-transfer-images/output1.png';
 import generatedImageStyle2 from '@/style-transfer-images/output2.png';
 import generatedImageStyle3 from '@/style-transfer-images/output3.png';
 
 const STBox4: React.FC = () => {
-    const [style, setStyle] = useState<'style1' | 'style2' | 'style3'>('style2');
-    const [generatedImage, setGeneratedImage] = useState<string>(generatedImageStyle2.src);
+    const [style, setStyle] = useState<'style1' | 'style2' | 'style3' | null>(null);
+    const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
     const handleImageClick = (value: 'style1' | 'style2' | 'style3') => {
         setStyle(value);
@@ -48,7 +48,13 @@ const STBox4: React.FC = () => {
                     </div>
                     <div className="flex flex-col items-center flex-grow">
                         <div className="font-bold mb-4">Generated Image with Style</div>
-                        <Image src={generatedImage} alt="Generated Image" className="rounded-lg" width={250} height={250} />
+                        {generatedImage ? (
+                            <Image src={generatedImage} alt="Generated Image" className="rounded-lg" width={250} height={250} />
+                        ) : (
+                            <div className="w-[250px] h-[300px] bg-gray-300 flex items-center justify-center rounded-lg">
+                                <span className="text-gray-600">Choose style image</span>
+                            </div>
+                        )}
                         <div className="mt-4 w-full">
                             <div className="font-bold mb-2">Style</div>
                             <div className="flex justify-center space-x-4">
