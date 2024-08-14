@@ -1,0 +1,21 @@
+[
+  { "id": 1, "type": "text", "text": "Welcome to the style transfer tutorial! The style transfer function lets you apply one image's style to another. Let's dive in and see how it works!", "sender": "ai"},
+  { "id": 2, "type": "text", "text": "That sounds fascinating! How do we get started?", "sender": "user" },
+  { "id": 3, "type": "text", "text": "First, we'll need two images: one for the content and one for the style.", "sender": "ai" },
+  { "id": 3.1, "text": "The content image is what you want to transform, and the style image provides the artistic style you want to apply.", "sender": "ai", "type": "text"},
+  { "id": 3.5, "type": "interactive", "component":"STBox1" },
+  { "id": 4, "type": "text", "text": "Great! Now that we have our images, let's explore how style influences the final image.", "sender": "ai" },
+  { "id": 4.5, "type": "interactive", "component": "STBox2" },
+  { "id": 5, "text": "Wow! That’s incredible! The changes are dramatic. How does AI achieve that?", "sender": "user", "type": "text" },
+  { "id": 6, "text": "It involves two steps: understanding the style of the image and then applying it. ", "sender": "ai", "type": "text" },
+  { "id": 6.1, "text": "The AI analyzes the style image to capture its artistic elements, like brush strokes, colors, and patterns.", "sender": "ai", "type": "text"},
+  { "id": 6.5, "type": "interactive", "component": "STBox3" },
+  { "id": 7, "text": "Okay. I get how AI understands the style, what happens next?", "sender": "user", "type": "text" },
+  { "id": 8, "text": "Next, AI will apply the style to your landscape photo. Having the landscape photo as a content image, the AI will overlay the patterns from the style image onto your photo. ", "sender": "ai", "type": "text" },
+  { "id": 8.1, "text": "This includes adding vibrant colours, swirling patterns and bold outlines.", "sender": "ai", "type": "text"},
+  { "id": 9, "text": "Let's have some fun experimenting with different styles.", "sender": "ai"},
+  { "id": 9.5, "type": "interactive", "component": "STBox4" },
+  { "id": 10, "text": "That is fantastic! Thank you for guiding me through this.", "sender": "user", "tpe": "text" },
+  { "id": 11, "text": "Happy creating! Enjoy your artistic journey!", "sender": "ai", "type": "text" },
+  { "id": 11.5, "type": "interactive", "component": "STLearnMoreButton"}
+]
