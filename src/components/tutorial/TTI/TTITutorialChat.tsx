@@ -1,14 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-//import userIcon from '@/images/human_icon.png';
-//import aiIcon from '@/images/human2_icon.png';
-
 import aiDog from '@/images/ai-dog.png';
-// source: <a href="https://www.flaticon.com/free-icons/dog" title="dog icons">Dog icons created by Freepik - Flaticon</a>
 import userDog from '@/images/user-dog.png';
-// source: <a href="https://www.flaticon.com/free-icons/dog" title="dog icons">Dog icons created by Freepik - Flaticon</a>
-
-import { useRouter } from 'next/router';
 import TTIBox from '@/components/tutorial/TTI/TTIBox';
 import TTIMap from '@/components/tutorial/TTI/TTIMap';
 import TTILiv1 from '@/components/tutorial/TTI/TTILiv1';
@@ -31,10 +24,7 @@ interface ChatMessage {
 const chatMessages: ChatMessage[] = chatMessagesData as ChatMessage[];
 
 const TTITutorialChat: React.FC = () => {
-    const [showMore, setShowMore] = useState<boolean | null>(null);
-    const [imageGenerated, setImageGenerated] = useState<boolean>(false);
-    const [visibleMessages, setVisibleMessages] = useState<ChatMessage[]>(chatMessages.slice(0, 2));
-    const router = useRouter();
+    const [currentMessageIndex, setCurrentMessageIndex] = useState<number>(0);
     const chatRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -70,19 +60,19 @@ const TTITutorialChat: React.FC = () => {
                 });
             }
         };
-    }, [visibleMessages]);
+    }, [currentMessageIndex]);
 
     const handleImageGenerated = () => {
-        setImageGenerated(true);
         setTimeout(() => {
-            setVisibleMessages(chatMessages.slice(0, chatMessages.length));
-            setTimeout(() => {
-                const chatRefCurrent = chatRef.current;
-                if (chatRefCurrent) {
-                    chatRefCurrent.scrollBy({ top: 150, behavior: 'smooth' });
-                }
-            }, 200);
+            chatRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }, 200);
+    };
+
+    const handleNextMessage = () => {
+        if (currentMessageIndex < chatMessages.length - 1) {
+            setCurrentMessageIndex((prev) => prev + 1);
+            handleImageGenerated();
+        }
     };
 
     const renderComponent = (component: string) => {
@@ -102,54 +92,67 @@ const TTITutorialChat: React.FC = () => {
             case 'CompareImages':
                 return <CompareImages onImageGenerated={handleImageGenerated} />;
             case 'TTILearnMoreButton':
-                return <TTILearnMoreButton /> 
+                return <TTILearnMoreButton />;
             default:
                 return null;
         }
     };
 
     return (
-        <section ref={chatRef} className="flex flex-col items-start py-4 space-y-4">
-            {visibleMessages.map((message: ChatMessage) => {
-                if (message.id > 18 && !showMore) {
-                    return null;
-                }
-                if (message.type === 'interactive') {
+        <div className="relative">
+            <section ref={chatRef} className="flex flex-col items-start py-4 space-y-4">
+                {chatMessages.slice(0, currentMessageIndex + 1).map((message: ChatMessage) => {
+                    if (message.type === 'interactive') {
+                        return (
+                            <div key={message.id} className="chat-item opacity-0 flex items-center justify-center w-full">
+                                <div className="flex flex-col items-center">
+                                    {renderComponent(message.component!)}
+                                </div>
+                            </div>
+                        );
+                    }
                     return (
-                        <div key={message.id} className="chat-item opacity-0 flex items-center justify-center w-full">
-                            {renderComponent(message.component!)}
+                        <div
+                            key={message.id}
+                            className={`chat-item opacity-0 flex items-start ${
+                                message.sender === 'ai' ? 'justify-end space-x-reverse' : ''
+                            } space-x-4 w-full max-w-2xl ${
+                                message.sender === 'ai' ? 'ml-auto' : ''
+                            }`}
+                        >
+                            {message.sender === 'user' && <Image src={userDog} alt="User Icon" width={50} height={50} className="rounded-full" />}
+                            <div className={`${message.sender === 'ai' ? 'bg-blue-100' : 'bg-gray-100'} p-4 rounded-2xl shadow-md ${message.image ? 'border-2 border-blue-200' : ''}`}>
+                                {message.type === 'image' ? (
+                                    <div className="w-full h-auto">
+                                        <Image src={message.image!} alt="Example Image" width={600} height={400} className="rounded-xl" />
+                                    </div>
+                                ) : (
+                                    <p className="text-lg">{message.text}</p>
+                                )}
+                            </div>
+                            {message.sender === 'ai' && <Image src={aiDog} alt="AI Icon" width={50} height={50} className="rounded-full" />}
                         </div>
                     );
-                }
-                return (
-                    <div
-                        key={message.id}
-                        className={`chat-item opacity-0 flex items-start ${message.sender === 'ai' ? 'justify-end space-x-reverse' : ''} space-x-4 w-full max-w-2xl ${message.sender === 'ai' ? 'ml-auto' : ''}`}
-                    >
-                        {message.sender === 'user' && <Image src={userDog} alt="User Icon" width={50} height={50} className="rounded-full" />}
-                        <div className={`${message.sender === 'ai' ? 'bg-blue-100' : 'bg-gray-100'} p-4 rounded-2xl shadow-md ${message.image ? 'border-2 border-blue-200' : ''}`}>
-                            {message.type === 'image' ? (
-                                <div className="w-full h-auto">
-                                    <Image src={message.image!} alt="Example Image" width={600} height={400} className="rounded-xl" />
-                                </div>
-                            ) : (
-                                <p className="text-lg">{message.text}</p>
-                            )}
-                        </div>
-                        <div className='p-1'></div>
-                        {message.sender === 'ai' && <Image src={aiDog} alt="AI Icon" width={50} height={50} className="rounded-full" />}
+                })}
+            </section>
+
+            {/* Interactive Component Centered */}
+            {chatMessages[currentMessageIndex]?.type === 'interactive' && (
+                <div className="flex justify-center w-full mt-8">
+                    <div className="flex flex-col items-center">
+                        {renderComponent(chatMessages[currentMessageIndex].component!)}
                     </div>
-                );
-            })}
-            {showMore === false && (
-                <div className="chat-item opacity-0 flex items-start justify-end space-x-4 space-x-reverse w-full max-w-2xl ml-4">
-                    <div className="bg-blue-100 p-4 rounded-2xl shadow-md">
-                        <p className="text-lg">Thank you for your interest. Redirecting you to the home page...</p>
-                    </div>
-                    <Image src={aiDog} alt="AI Icon" width={50} height={50} className="rounded-full" />
                 </div>
             )}
-        </section>
+
+            {/* Next Button */}
+            <button
+                onClick={handleNextMessage}
+                className="fixed bottom-[175px] right-[175px] bg-blue-500 text-white p-2 rounded shadow-lg"
+            >
+                Next
+            </button>
+        </div>
     );
 };
 
