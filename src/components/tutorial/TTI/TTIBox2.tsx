@@ -31,7 +31,7 @@ const TTIBox2: React.FC<TTIBox2Props> = ({ onImageGenerated }) => {
     }, [step]);
 
     const handleAddElement = (element: string) => {
-        setPrompt(`${prompt}, with a ${element}`);
+        setPrompt(`${prompt}, with ${element}`);
         setStep(step + 1);
         setShowPopup(false);
     };
@@ -93,7 +93,7 @@ const TTIBox2: React.FC<TTIBox2Props> = ({ onImageGenerated }) => {
                         <h3 className="font-bold mb-2">Additional elements</h3>
                         <div className="space-y-2">
                             <button
-                                onClick={() => handleAddElement('coffee table')}
+                                onClick={() => handleAddElement('a coffee table')}
                                 className={`w-full p-2 border rounded hover:bg-gray-100 ${
                                     step === 0 ? 'animate__animated animate__pulse animate__infinite' : 'opacity-50 cursor-not-allowed'
                                 }`}

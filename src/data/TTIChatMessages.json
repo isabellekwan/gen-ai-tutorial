@@ -2,7 +2,7 @@
   { "id": 1, "text": "Welcome to our tutorial on text-to-image generation. Let’s get started! Suppose you want to generate an image of a dog sitting in the living room.", "sender": "ai", "type": "text" },
   { "id": 2, "type": "interactive", "component": "TTIBox" },
   { "id": 3, "text": "How does AI manage to do that?", "sender": "user", "type": "text" },
-  { "id": 4, "text": "Great question! AI starts by analyzing the description. It knows it should place the dog within the context of the living room.", "sender": "ai", "type": "text" },
+  { "id": 4, "text": "Great question! AI starts by analyzing the description. It knows it should place the dog within the context of a living room.", "sender": "ai", "type": "text" },
   { "id": 5, "text": "Then it will arrange elements like sofas, coffee tables, and rugs based on what it learned from numerous images.", "sender": "ai", "type": "text" },
   { "id": 6, "text": "To better understand how AI knows what makes a living room, click on the red dot to see how AI learns the common elements associated with a 'living room' image.", "sender": "ai", "type": "text" },
   { "id": 7, "type": "interactive", "component": "TTILiv1" },

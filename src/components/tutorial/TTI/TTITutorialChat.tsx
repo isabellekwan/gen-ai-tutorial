@@ -84,7 +84,7 @@ const TTITutorialChat: React.FC = () => {
                 const paddingAmount = 250; // Messages get more padding
                 paddingRef.current.style.height = `${paddingAmount}px`;
             } else {
-                paddingRef.current.style.height = '75px';
+                paddingRef.current.style.height = '0px';
             }
         }
     };
