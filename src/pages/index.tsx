@@ -9,11 +9,9 @@ import Image from 'next/image';
 import textToImage from '../images/text_to_image.png';
 import styleTransfer from '../images/style-transfer.png';
 import imageToImage from '../images/Image_to_image.png';
-// import datasetToImage from '../images/dataset_to_image.png';
-// import logoSketch from '../images/logo_sketch.png';
 import computerIcon from '../images/computer-icon.png';
 import SurveyCharts from '@/components/survey/survey';
-import Head from "next/head";
+
 
 const tutorials = [
     {
@@ -87,8 +85,6 @@ const Home: React.FC = () => {
                                 <Image
                                     src={computerIcon}
                                     alt="Computer Icon"
-                                    // src={logoSketch}
-                                    // alt="Logo Sketch"
                                     width={300}
                                     height={300}
                                     className="object-cover rounded-xl"

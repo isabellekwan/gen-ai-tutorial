@@ -26,6 +26,7 @@ const chatMessages: ChatMessage[] = chatMessagesData as ChatMessage[];
 const TTITutorialChat: React.FC = () => {
     const [currentMessageIndex, setCurrentMessageIndex] = useState<number>(0);
     const chatRef = useRef<HTMLDivElement>(null);
+    const paddingRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observerOptions = {
@@ -72,12 +73,27 @@ const TTITutorialChat: React.FC = () => {
         if (currentMessageIndex < chatMessages.length - 1) {
             setCurrentMessageIndex((prev) => prev + 1);
             handleImageGenerated();
+            updatePadding();
+        }
+    };
+
+    const updatePadding = () => {
+        if (paddingRef.current) {
+            const currentMessage = chatMessages[currentMessageIndex + 1]; // Check the next message type
+            if (currentMessage.type !== 'interactive') {
+                const paddingAmount = 250; // Messages get more padding
+                paddingRef.current.style.height = `${paddingAmount}px`;
+            } else {
+                paddingRef.current.style.height = '75px';
+            }
         }
     };
 
     const renderComponent = (component: string) => {
+        console.log('component component')
         switch (component) {
             case 'TTIBox':
+                console.log('TTIBox Rendered')
                 return <TTIBox onImageGenerated={handleImageGenerated} />;
             case 'TTIMap':
                 return <TTIMap />;
@@ -105,9 +121,7 @@ const TTITutorialChat: React.FC = () => {
                     if (message.type === 'interactive') {
                         return (
                             <div key={message.id} className="chat-item opacity-0 flex items-center justify-center w-full">
-                                <div className="flex flex-col items-center">
-                                    {renderComponent(message.component!)}
-                                </div>
+                                {renderComponent(message.component!)}
                             </div>
                         );
                     }
@@ -134,21 +148,14 @@ const TTITutorialChat: React.FC = () => {
                         </div>
                     );
                 })}
+                {/* Padding Element */}
+                <div ref={paddingRef} style={{ height: '50px' }}></div>
             </section>
-
-            {/* Interactive Component Centered */}
-            {chatMessages[currentMessageIndex]?.type === 'interactive' && (
-                <div className="flex justify-center w-full mt-8">
-                    <div className="flex flex-col items-center">
-                        {renderComponent(chatMessages[currentMessageIndex].component!)}
-                    </div>
-                </div>
-            )}
 
             {/* Next Button */}
             <button
                 onClick={handleNextMessage}
-                className="fixed bottom-[175px] right-[175px] bg-blue-500 text-white p-2 rounded shadow-lg"
+                className="fixed bottom-[175px] right-[175px] bg-blue-500 text-white px-4 py-2 rounded shadow-lg"
             >
                 Next
             </button>
