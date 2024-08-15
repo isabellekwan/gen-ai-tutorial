@@ -155,7 +155,7 @@ const TTITutorialChat: React.FC = () => {
             {/* Next Button */}
             <button
                 onClick={handleNextMessage}
-                className="fixed bottom-[175px] right-[175px] bg-blue-500 text-white px-4 py-2 rounded shadow-lg"
+                className="fixed bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded shadow-lg"
             >
                 Next
             </button>
