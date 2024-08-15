@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import generatedImg from '@/text-to-image-slides/Dogs/Interaction2.png';
 import 'animate.css';
-import Popup from '../TTI/PopUp';
 
 interface TTIBox2Props {
     onImageGenerated: () => void;
@@ -48,7 +47,12 @@ const TTIBox2: React.FC<TTIBox2Props> = ({ onImageGenerated }) => {
 
     return (
         <div className="flex flex-col items-center justify-center mt-8 mb-8 w-full max-w-4xl">
-            {showPopup && <Popup message={message} onClose={() => setShowPopup(false)} />}
+            {/* Pop-up integrated directly here */}
+            {showPopup && (
+                <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white p-4 rounded shadow-lg z-50 flex justify-between items-center w-auto max-w-l">
+                    <span className="flex-grow">{message}</span>
+                </div>
+            )}
             <div className="mockup-window border-4 border-black bg-white p-4 rounded-lg shadow-lg w-full overflow-hidden">
                 <div className="border-b pb-2 mb-4 flex justify-between items-center">
                     <div className="flex space-x-2">

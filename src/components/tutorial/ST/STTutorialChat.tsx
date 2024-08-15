@@ -23,7 +23,9 @@ interface ChatMessage {
 const chatMessages: ChatMessage[] = chatMessagesData as ChatMessage[];
 
 const STTutorialChat: React.FC = () => {
+    const [currentMessageIndex, setCurrentMessageIndex] = useState<number>(0);
     const chatRef = useRef<HTMLDivElement>(null);
+    const paddingRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observerOptions = {
@@ -58,7 +60,33 @@ const STTutorialChat: React.FC = () => {
                 });
             }
         };
-    }, []);
+    }, [currentMessageIndex]);
+
+    const handleImageGenerated = () => {
+        setTimeout(() => {
+            chatRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 200);
+    };
+
+    const handleNextMessage = () => {
+        if (currentMessageIndex < chatMessages.length - 1) {
+            setCurrentMessageIndex((prev) => prev + 1);
+            handleImageGenerated();
+            updatePadding();
+        }
+    };
+
+    const updatePadding = () => {
+        if (paddingRef.current) {
+            const currentMessage = chatMessages[currentMessageIndex + 1]; // Check the next message type
+            if (currentMessage.type !== 'interactive') {
+                const paddingAmount = 250; // Messages get more padding
+                paddingRef.current.style.height = `${paddingAmount}px`;
+            } else {
+                paddingRef.current.style.height = '75px';
+            }
+        }
+    };
 
     const renderComponent = (component: string) => {
         switch (component) {
@@ -78,8 +106,9 @@ const STTutorialChat: React.FC = () => {
     };
 
     return (
+        <div className = "relative">
         <section ref={chatRef} className="flex flex-col items-start py-4 space-y-4">
-            {chatMessages.map((message: ChatMessage) => {
+            {chatMessages.slice(0, currentMessageIndex + 1).map((message: ChatMessage) => {
                 if (message.type === 'interactive') {
                     return (
                         <div key={message.id} className="chat-item opacity-0 flex items-center justify-center w-full">
@@ -107,7 +136,18 @@ const STTutorialChat: React.FC = () => {
                     </div>
                 );
             })}
+           {/* Padding Element */}
+           <div ref={paddingRef} style={{ height: '50px' }}></div>
         </section>
+
+        {/* Next Button */}
+        <button
+            onClick={handleNextMessage}
+            className="fixed bottom-[175px] right-[175px] bg-blue-500 text-white px-4 py-2 rounded shadow-lg"
+        >
+            Next
+        </button>
+        </div>
     );
 };
 
