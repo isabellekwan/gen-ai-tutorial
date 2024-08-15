@@ -21,6 +21,5 @@
   { "id": 20, "text": "Sometimes, when there are many details, the AI prioritizes what it thinks are the most important elements, which might mean missing some other information." , "sender": "ai", "type": "text" },
   { "id": 21, "text": "However, each generation process can be different. Try generating again, and you might see the dog on the sofa.", "sender":"ai", "type": "text"},
   { "id": 22, "text": "That makes sense. I’ll keep experimenting with descriptions to see what works best.", "sender": "user", "type": "text" },
-  { "id": 23, "text": "Happy creating!", "sender": "ai", "type": "text" },
-  { "id": 24, "type":"interactive", "component": "TTILearnMoreButton"}
+  { "id": 23, "text": "Happy creating!", "sender": "ai", "type": "text" }
 ]

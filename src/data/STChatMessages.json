@@ -15,6 +15,5 @@
   { "id": 9, "text": "Let's have some fun experimenting with different styles.", "sender": "ai"},
   { "id": 9.5, "type": "interactive", "component": "STBox4" },
   { "id": 10, "text": "That is fantastic! Thank you for guiding me through this.", "sender": "user", "tpe": "text" },
-  { "id": 11, "text": "Happy creating! Enjoy your artistic journey!", "sender": "ai", "type": "text" },
-  { "id": 11.5, "type": "interactive", "component": "STLearnMoreButton"}
+  { "id": 11, "text": "Happy creating! Enjoy your artistic journey!", "sender": "ai", "type": "text" }
 ]

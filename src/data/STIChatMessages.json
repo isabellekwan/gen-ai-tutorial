@@ -23,6 +23,5 @@
   { "id": 11.5, "type": "interactive", "component": "STIBox5"},
   { "id": 11.6, "type": "interactive", "component": "STIBox6"},
   { "id": 12, "text": "The AI has learned from many different images and styles. When AI is allowed to be more creative, it mixes these ideas in new and interesting ways. And that's it! We've gone from a simple sketch to a detailed picture.", "sender": "ai", "type": "text" },
-  { "id": 13, "text": "Thanks for explaining!", "sender": "user", "type": "text" },
-  { "id": 13.5, "type": "interactive", "component": "STILearnMoreButton"}
+  { "id": 13, "text": "Thanks for explaining!", "sender": "user", "type": "text" }
 ]
