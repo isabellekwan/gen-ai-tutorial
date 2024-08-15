@@ -7,7 +7,7 @@
   { "id": 4, "type": "text", "text": "Great! Now that we have our images, let's explore how style influences the final image.", "sender": "ai" },
   { "id": 4.5, "type": "interactive", "component": "STBox2" },
   { "id": 5, "text": "Wow! That’s incredible! The changes are dramatic. How does AI achieve that?", "sender": "user", "type": "text" },
-  { "id": 6, "text": "It involves two steps: understanding the style of the image and then applying it. ", "sender": "ai", "type": "text" },
+  { "id": 6, "text": "It involves two steps: understanding the patterns of the image and then applying those to another image. ", "sender": "ai", "type": "text" },
   { "id": 6.1, "text": "The AI analyzes the style image to capture its artistic elements, like brush strokes, colors, and patterns.", "sender": "ai", "type": "text"},
   { "id": 6.5, "type": "interactive", "component": "STBox3" },
   { "id": 7, "text": "Okay. I get how AI understands the style, what happens next?", "sender": "user", "type": "text" },

@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 // Import the images
-import sofa_dog1 from '@/text-to-image-slides/Dogs/sofa_dog1.png';
-import sofa_dog2 from '@/text-to-image-slides/Dogs/sofa_dog2.png';
-import sofa_dog3 from '@/text-to-image-slides/Dogs/sofa_dog3.png';
+import sofa_dog1 from '@/text-to-image-images/sofa_dog1.png';
+import sofa_dog2 from '@/text-to-image-images/sofa_dog2.png';
+import sofa_dog3 from '@/text-to-image-images/sofa_dog3.png';
 
 interface TTIBox3Props {
     onImageGenerated: () => void;

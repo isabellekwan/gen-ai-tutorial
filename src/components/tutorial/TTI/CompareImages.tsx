@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import originalDog from '@/text-to-image-slides/Dogs/Interaction1.png';
-import complexDog from '@/text-to-image-slides/Dogs/Interaction2.png';
+import originalDog from '@/text-to-image-images/Interaction1.png';
+import complexDog from '@/text-to-image-images/Interaction2.png';
 
 interface CompareImagesProps {
     onImageGenerated: () => void;

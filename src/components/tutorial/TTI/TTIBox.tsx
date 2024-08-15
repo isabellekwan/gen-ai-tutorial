@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import generatedImg from '@/text-to-image-slides/Dogs/Interaction1.png';
+import generatedImg from '@/text-to-image-images/Interaction1.png';
 import { TypeAnimation } from 'react-type-animation';
 
 interface TTIBoxProps {

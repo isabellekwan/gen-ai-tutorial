@@ -3,7 +3,7 @@
   { "id": 2, "text": "First, we need to prepare a sketch to work with.", "type": "text",  "sender":"ai"},
   { "id": 3, "type": "text", "text": "Here you go! Let's work with the car sketch. It has the basic outlines of the car body, a window, and wheels.", "sender": "user" },
   { "id": 3.5, "type": "interactive", "component": "CarSketch"},
-  { "id": 4, "type": "text", "text": "Great! So the AI looks at the sketch and tries to understand it by identifying the shapes and figuring out what each part represents. Let’s break down how it does this.", "sender": "ai" },
+  { "id": 4, "type": "text", "text": "Great! So the AI looks at the sketch and tries to understand it by identifying its patterns and figuring out what each part represents. Let’s break down how it does this.", "sender": "ai" },
   { "id": 5, "type": "text", "text": "First, it looks for basic shapes like rectangles, circles, and ovals and then tries to guess what each shape is. ", "sender": "ai" },
   { "id": 5.1, "text": "For instance, it might see circles at the bottom of the sketch and guess that they are the wheels. If it sees rounded shape above those circles, it might think it is the window.", "sender": "ai", "type": "text" },
   { "id": 5.2, "text": "It also uses clues from the sketch to understand the context. For instance, there are smaller circles within the larger circles, AI might understand these as hubcaps on the wheels.", "sender": "ai", "type": "text" },
